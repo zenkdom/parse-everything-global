@@ -5,7 +5,7 @@ Bypassing Cloudflare Turnstile & WAF challenge pages.
 
 from parse_everything import ParseEverything
 
-API_KEY = "pe_live_9a8b7c6d5e4f3a2b1c0d"
+API_KEY = "pe_live_YOUR_API_KEY"
 client = ParseEverything(api_key=API_KEY)
 
 # Scrape a known Cloudflare Turnstile demo page

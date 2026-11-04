@@ -6,7 +6,7 @@ Basic scraping with Parse Everything Python SDK.
 from parse_everything import ParseEverything
 
 # Use your API key or the public sandbox key
-API_KEY = "pe_live_9a8b7c6d5e4f3a2b1c0d"
+API_KEY = "pe_live_YOUR_API_KEY"
 
 client = ParseEverything(api_key=API_KEY)
 

@@ -6,7 +6,7 @@ Submit multiple URLs for asynchronous background scraping with webhook or pollin
 import time
 from parse_everything import ParseEverything
 
-client = ParseEverything("pe_live_9a8b7c6d5e4f3a2b1c0d")
+client = ParseEverything("pe_live_YOUR_API_KEY")
 
 urls = [
     "https://example.com",

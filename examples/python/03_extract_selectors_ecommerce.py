@@ -5,7 +5,7 @@ Extracting structured product data from e-commerce catalog pages.
 
 from parse_everything import ParseEverything
 
-client = ParseEverything("pe_live_9a8b7c6d5e4f3a2b1c0d")
+client = ParseEverything("pe_live_YOUR_API_KEY")
 
 response = client.scrape(
     target_url="https://books.toscrape.com/catalogue/category/books/travel_2/index.html",

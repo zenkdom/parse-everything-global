@@ -2,7 +2,7 @@
 # Quickstart cURL commands for Parse Everything API
 # https://parse-everything.com
 
-API_KEY="pe_live_9a8b7c6d5e4f3a2b1c0d"
+API_KEY="pe_live_YOUR_API_KEY"
 API_URL="https://parse-everything.com/api/v1/extract"
 
 echo "=== 1. Simple GET Extraction ==="

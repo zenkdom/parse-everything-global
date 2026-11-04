@@ -93,7 +93,7 @@ pip install parse-everything
 from parse_everything import ParseEverything
 
 # Initialize with your API key (get 1,000 free credits at https://parse-everything.com)
-client = ParseEverything("pe_live_9a8b7c6d5e4f3a2b1c0d")
+client = ParseEverything("pe_live_YOUR_API_KEY")
 
 # 1. Scrape a Cloudflare Turnstile protected site
 res = client.scrape(
@@ -121,7 +121,7 @@ npm install parse-everything
 ```typescript
 import { ParseEverything } from 'parse-everything';
 
-const client = new ParseEverything('pe_live_9a8b7c6d5e4f3a2b1c0d');
+const client = new ParseEverything('pe_live_YOUR_API_KEY');
 
 async function run() {
   const result = await client.scrape({
@@ -144,13 +144,13 @@ Ideal for scripts, terminal pipelines, Docker containers, n8n, Zapier, or Make.
 #### Simple GET Request
 ```bash
 curl "https://parse-everything.com/api/v1/extract?target_url=https://example.com" \
-     -H "Authorization: Bearer pe_live_9a8b7c6d5e4f3a2b1c0d"
+     -H "Authorization: Bearer pe_live_YOUR_API_KEY"
 ```
 
 #### Advanced POST Request (with Selectors & Anti-Bot Bypass)
 ```bash
 curl -X POST "https://parse-everything.com/api/v1/extract" \
-     -H "Authorization: Bearer pe_live_9a8b7c6d5e4f3a2b1c0d" \
+     -H "Authorization: Bearer pe_live_YOUR_API_KEY" \
      -H "Content-Type: application/json" \
      -d '{
        "target_url": "https://nopecha.com/demo/cloudflare",
@@ -267,12 +267,6 @@ Every account receives **1,000 free requests every single month**, no credit car
 1. Create a free account at [https://parse-everything.com](https://parse-everything.com).
 2. Copy your secret API key from the dashboard.
 3. Start scraping!
-
-**Interactive Demo Key:**  
-For quick offline testing and local sandbox verification, the public sandbox key is:
-```text
-pe_live_9a8b7c6d5e4f3a2b1c0d
-```
 
 ---
 

@@ -5,7 +5,7 @@
 
 const { ParseEverything } = require('../../packages/nodejs/index');
 
-const client = new ParseEverything('pe_live_9a8b7c6d5e4f3a2b1c0d');
+const client = new ParseEverything('pe_live_YOUR_API_KEY');
 
 async function main() {
     try {
