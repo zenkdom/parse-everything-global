@@ -1,0 +1,453 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Parse Everything — Enterprise Anti-Bot & Web Scraping API",
+    "description": "High-performance web extraction API with TLS JA3/JA4 browser impersonation, Cloudflare Turnstile, Akamai & DataDome bypass engine, Batch API & Webhooks.",
+    "version": "2.0.0",
+    "contact": {
+      "name": "Parse Everything Support",
+      "url": "https://parse-everything.com",
+      "email": "support@rawmind.app"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://parse-everything.com",
+      "description": "Production API Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/extract": {
+      "post": {
+        "summary": "Extract Web Data & Bypass Anti-Bot",
+        "description": "Scrapes any target URL, automatically solves Cloudflare Turnstile, Akamai, or DataDome protection, and returns HTML or structured data.",
+        "operationId": "extractWebData",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "RapidApiAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScrapeRequest"
+              },
+              "example": {
+                "target_url": "https://nopecha.com/demo/cloudflare",
+                "bypass_cloudflare": true,
+                "render_js": false,
+                "country_code": "US",
+                "extract_text": false,
+                "selectors": {
+                  "heading": "h1",
+                  "paragraphs": "p"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful extraction",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScrapeResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — Missing or invalid API key"
+          },
+          "429": {
+            "description": "Rate limit exceeded or out of credits"
+          }
+        }
+      },
+      "get": {
+        "summary": "Extract Web Data via GET (ScrapingBee compatible)",
+        "description": "Scrapes target URL with anti-bot bypass using query parameters. Failed requests cost 0 credits.",
+        "operationId": "extractWebDataGet",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "RapidApiAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "target_url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Target webpage URL to extract"
+          },
+          {
+            "name": "render_js",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "description": "Execute JavaScript and wait for DOM"
+          },
+          {
+            "name": "country_code",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "US"
+            },
+            "description": "Proxy country code"
+          },
+          {
+            "name": "extract_text",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "description": "Extract cleaned text only"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful extraction",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "": "#/components/schemas/ScrapeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/batch": {
+      "post": {
+        "summary": "Submit Asynchronous Batch Extraction",
+        "description": "Queue up to 100 URLs for background extraction with optional webhook notification.",
+        "operationId": "submitBatch",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "RapidApiAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchRequest"
+              },
+              "example": {
+                "target_urls": [
+                  "https://example.com/page1",
+                  "https://example.com/page2"
+                ],
+                "render_js": false,
+                "country_code": "US"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Batch accepted",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "success",
+                  "batch_id": "batch_8a9f7e1b2c3d4e5f",
+                  "total_urls": 2,
+                  "message": "Batch queued for processing."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/batch/{batch_id}": {
+      "get": {
+        "summary": "Check Batch Job Status & Progress",
+        "description": "Poll progress and retrieve completed extraction results for a batch.",
+        "operationId": "getBatchStatus",
+        "parameters": [
+          {
+            "name": "batch_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "batch_8a9f7e1b2c3d4e5f"
+          }
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "RapidApiAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Batch status retrieved"
+          }
+        }
+      }
+    },
+    "/api/v1/sessions": {
+      "get": {
+        "summary": "List Active Clearance Sessions",
+        "description": "Returns active anti-bot clearance sessions (Cloudflare, DDoS-Guard, Akamai) for user.",
+        "operationId": "getUserSessions",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "RapidApiAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of active sessions"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Clear Clearance Sessions",
+        "description": "Invalidates active anti-bot clearance sessions (optionally by domain).",
+        "operationId": "clearUserSessions",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Optional domain to clear"
+          }
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "RapidApiAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sessions cleared"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      },
+      "RapidApiAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-RapidAPI-Key"
+      }
+    },
+    "schemas": {
+      "ScrapeRequest": {
+        "type": "object",
+        "required": [
+          "target_url"
+        ],
+        "properties": {
+          "target_url": {
+            "type": "string",
+            "example": "https://example.com/protected-page"
+          },
+          "render_js": {
+            "type": "boolean",
+            "default": false
+          },
+          "bypass_cloudflare": {
+            "type": "boolean",
+            "default": true
+          },
+          "country_code": {
+            "type": "string",
+            "default": "US"
+          },
+          "timeout": {
+            "type": "integer",
+            "default": 40,
+            "minimum": 5,
+            "maximum": 120
+          },
+          "extract_text": {
+            "type": "boolean",
+            "default": false
+          },
+          "selectors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "example": {
+              "title": "h1",
+              "price": ".price"
+            }
+          },
+          "custom_headers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "session_id": {
+            "type": "string",
+            "default": "default",
+            "description": "Custom session ID to isolate clearance sessions across tasks."
+          },
+          "use_session": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable persistent anti-bot session caching. Subsequent requests reuse clearance in ~0.2s."
+          },
+          "fresh_session": {
+            "type": "boolean",
+            "default": false,
+            "description": "Force invalidate cached session and acquire fresh anti-bot clearance."
+          },
+          "method": {
+            "type": "string",
+            "default": "GET",
+            "description": "HTTP method for target URL: GET, POST, PUT, DELETE, PATCH",
+            "example": "POST"
+          },
+          "body": {
+            "type": "object",
+            "description": "Optional JSON/form payload to forward to target website for POST/PUT requests",
+            "example": {
+              "category": "electronics",
+              "page": 1
+            }
+          }
+        }
+      },
+      "ScrapeResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "success"
+          },
+          "timestamp": {
+            "type": "string",
+            "example": "2026-10-28T12:00:00Z"
+          },
+          "engine_used": {
+            "type": "string",
+            "example": "curl_cffi_tls_chrome120"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "http_status": {
+                "type": "integer",
+                "example": 200
+              },
+              "page_title": {
+                "type": "string",
+                "example": "Example Domain"
+              },
+              "content_length": {
+                "type": "integer",
+                "example": 1420
+              },
+              "execution_time_seconds": {
+                "type": "number",
+                "example": 0.28
+              },
+              "protection_bypassed": {
+                "type": "string",
+                "example": "Cloudflare Turnstile"
+              },
+              "full_html": {
+                "type": "string"
+              },
+              "selectors_data": {
+                "type": "object"
+              }
+            }
+          },
+          "session": {
+            "type": "object",
+            "properties": {
+              "reused": {
+                "type": "boolean",
+                "example": true
+              },
+              "created": {
+                "type": "boolean",
+                "example": false
+              },
+              "session_id": {
+                "type": "string",
+                "example": "default"
+              }
+            }
+          }
+        }
+      },
+      "BatchRequest": {
+        "type": "object",
+        "required": [
+          "target_urls"
+        ],
+        "properties": {
+          "target_urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "maxItems": 100
+          },
+          "render_js": {
+            "type": "boolean",
+            "default": false
+          },
+          "country_code": {
+            "type": "string",
+            "default": "US"
+          },
+          "webhook_url": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

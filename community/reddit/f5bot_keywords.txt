@@ -1,0 +1,20 @@
+# Real-time alert keywords for f5bot.com (free Reddit & Hacker News alert service)
+# Add these keywords to receive instant email notifications when developers discuss scraping issues
+
+turnstile
+flaresolverr
+datadome
+akamai bot
+scrapingbee
+zenrows
+scrapfly
+cloudflare 403
+undetected-chromedriver
+ja3 fingerprint
+ja4 fingerprint
+anti-bot bypass
+web scraping cloudflare
+curl_cffi
+patchright
+prowlarr flaresolverr
+jackett flaresolverr
