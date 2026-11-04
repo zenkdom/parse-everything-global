@@ -65,13 +65,3 @@ const data = await client.scrape({
 });
 console.log(data.data.selectors_data);
 ```
-
----
-
-## 🚀 How to Publish to npm
-
-```bash
-cd AD/04_sdks_and_packages/nodejs_npm
-npm login
-npm publish --access public
-```
