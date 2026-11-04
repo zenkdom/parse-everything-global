@@ -5,14 +5,16 @@
 **Bypass Cloudflare Turnstile, Cloudflare WAF, Akamai Bot Manager, and DataDome at wire speed.**  
 Powered by real **TLS JA3/JA4 browser fingerprint impersonation**, **Playwright stealth execution**, **Batch processing**, and **HMAC-SHA256 Webhooks**.
 
-[![PyPI version](https://img.shields.io/badge/pypi-v1.1.1-blue.svg?logo=pypi)](https://pypi.org/project/parse-everything/)
+[![PyPI version](https://img.shields.io/badge/pypi-v1.1.1-blue.svg?logo=pypi)](https://pypi.org/project/parse-everything/#metadata)
 [![npm version](https://img.shields.io/badge/npm-v1.1.1-red.svg?logo=npm)](https://www.npmjs.com/package/parse-everything)
+[![Packagist version](https://img.shields.io/badge/packagist-v1.1.0-orange.svg?logo=php)](https://packagist.org/packages/parse-everything/client)
+[![SaaSHub](https://img.shields.io/badge/SaaSHub-Rate_%26_Review-1182c5.svg?logo=buffer)](https://www.saashub.com/parse-everything-alternatives)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-brightgreen.svg?logo=python)](https://python.org)
 [![Node 18+](https://img.shields.io/badge/node-18+-green.svg?logo=node.js)](https://nodejs.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Free Tier](https://img.shields.io/badge/Free_Tier-1%2C000_Credits%2Fmo-purple.svg)](https://parse-everything.com)
 
-[**Website & Live Dashboard**](https://parse-everything.com) • [**Python SDK**](#1-python-sdk) • [**Node.js SDK**](#2-nodejs--typescript-sdk) • [**cURL Quickstart**](#3-curl--rest-api) • [**Use Cases**](#-common-developer-use-cases)
+[**Website & Live Dashboard**](https://parse-everything.com) • [**Python SDK**](#1-python-sdk) • [**Node.js SDK**](#2-nodejs--typescript-sdk) • [**PHP SDK**](#3-php-sdk-packagist) • [**cURL Quickstart**](#4-curl--rest-api) • [**SaaSHub Reviews**](#-community-reviews--alternatives)
 
 </div>
 
@@ -81,6 +83,8 @@ Parse Everything uses a high-performance **hybrid extraction architecture**:
 
 ## 🚀 Quick Start
 
+> 📦 **Download Examples Archive:** You can download all ready-to-run examples as a standalone zip package: **[`examples.zip`](https://github.com/zenkdom/parse-everything-global/releases/download/v1.1.1/examples.zip)**.
+
 ### 1. Python SDK
 
 Zero external dependencies (uses standard library under the hood). Works with Python 3.8+.
@@ -137,7 +141,28 @@ async function run() {
 run();
 ```
 
-### 3. cURL / REST API
+### 3. PHP SDK (Packagist)
+
+The official PHP client is published on [Packagist: parse-everything/client](https://packagist.org/packages/parse-everything/client) and maintained in the [zenkdom/parse-everything](https://github.com/zenkdom/parse-everything) repository.
+
+```bash
+composer require parse-everything/client
+```
+
+```php
+use ParseEverything\Client;
+
+$client = new Client('pe_live_YOUR_API_KEY');
+
+$response = $client->scrape([
+    'target_url' => 'https://nopecha.com/demo/cloudflare',
+    'bypass_cloudflare' => true
+]);
+
+print_r($response['data']['selectors_data']);
+```
+
+### 4. cURL / REST API
 
 Ideal for scripts, terminal pipelines, Docker containers, n8n, Zapier, or Make.
 
@@ -237,15 +262,16 @@ Content-Type: application/json
 
 ## 📦 Packages & Ecosystem
 
-| Package / Integration | Platform | Install Command / Directory | Status |
+| Package / Integration | Platform | Install Command / Source | Status |
 | :--- | :--- | :--- | :--- |
-| **`parse-everything`** | **PyPI** (Python) | `pip install parse-everything` ([`packages/python`](packages/python)) | Stable |
-| **`parse-everything`** | **npm** (Node.js/TS) | `npm install parse-everything` ([`packages/nodejs`](packages/nodejs)) | Stable |
+| **`parse-everything`** | **PyPI** (Python) | [`pip install parse-everything`](https://pypi.org/project/parse-everything/#metadata) ([`packages/python`](packages/python)) | Stable |
+| **`parse-everything`** | **npm** (Node.js/TS) | [`npm install parse-everything`](https://www.npmjs.com/package/parse-everything) ([`packages/nodejs`](packages/nodejs)) | Stable |
+| **`parse-everything/client`** | **Packagist** (PHP) | [`composer require parse-everything/client`](https://packagist.org/packages/parse-everything/client) ([GitHub Repository](https://github.com/zenkdom/parse-everything)) | Stable |
 | **LangChain DocumentLoader** | **Python** | [LangChain Integration Guide](integrations/langchain) | Ready |
 | **n8n Community Node** | **n8n** | [n8n Node Guide](integrations/n8n) | Ready |
 | **OpenAPI 3.0 Spec** | **REST / Swagger** | [`openapi.json`](openapi.json) | Production |
 
-*(Note: The PHP client and backend services are maintained in a separate repository).*
+*(Note: The PHP client and backend services are maintained in the separate [zenkdom/parse-everything](https://github.com/zenkdom/parse-everything) repository).*
 
 ---
 
@@ -257,6 +283,16 @@ Parse Everything solves the headache of maintaining brittle scraping setups acro
 - **RAG & AI Ingestion:** Scrape documentation sites, knowledgebases, and protected portals to feed vector databases (LangChain / LlamaIndex / Chroma).
 - **Price Monitoring & Arbitrage:** Scrape e-commerce portals that enforce strict TLS JA3 checks (Amazon, Walmart, BestBuy, Zillow).
 - **No-Code Automation:** Seamless workflow triggers in n8n, Make, and Zapier via direct REST endpoints and HMAC webhooks.
+
+---
+
+## ⭐ Community Reviews & Alternatives
+
+Compare Parse Everything with other scrapers or leave your feedback on **SaaSHub**:
+
+[![Rate & Review on SaaSHub](https://img.shields.io/badge/SaaSHub-Rate_%26_Review_on_SaaSHub-1182c5?style=for-the-badge&logo=buffer&logoColor=white)](https://www.saashub.com/parse-everything-alternatives)
+
+👉 View comparisons, benchmarks, and community alternatives: [https://www.saashub.com/parse-everything-alternatives](https://www.saashub.com/parse-everything-alternatives)
 
 ---
 
