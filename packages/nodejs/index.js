@@ -34,7 +34,8 @@ class ParseEverything {
      * @param {string} [params.method='GET'] - HTTP method: GET, POST, PUT, DELETE
      * @param {any} [params.body] - Request body/payload for POST/PUT
      * @param {boolean} [params.render_js=false] - Execute dynamic JS and wait for DOM
-     * @param {boolean} [params.bypass_cloudflare=true]
+     * @param {boolean} [params.auto_detect=true] - Autonomously detect and solve anti-bot protections
+     * @param {boolean} [params.bypass_cloudflare] - @deprecated Handled automatically when auto_detect is true
      * @param {string} [params.country_code='US']
      * @param {boolean} [params.extract_text=false]
      * @param {Record<string, string>} [params.selectors] - CSS selectors

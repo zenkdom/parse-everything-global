@@ -37,8 +37,8 @@ from parse_everything import ParseEverything
 client = ParseEverything(api_key="pe_live_YOUR_API_KEY")
 
 result = client.scrape(
-    target_url="https://nopecha.com/demo/cloudflare",
-    bypass_cloudflare=True,
+    target_url="https://parse-everything.com/demo/cloudflare",
+    auto_detect=True,
     render_js=False  # Handled via ultra-fast TLS impersonation in ~300ms
 )
 

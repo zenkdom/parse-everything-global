@@ -38,8 +38,8 @@
                 "$ref": "#/components/schemas/ScrapeRequest"
               },
               "example": {
-                "target_url": "https://nopecha.com/demo/cloudflare",
-                "bypass_cloudflare": true,
+                "target_url": "https://parse-everything.com/demo/cloudflare",
+                "auto_detect": true,
                 "render_js": false,
                 "country_code": "US",
                 "extract_text": false,

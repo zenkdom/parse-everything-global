@@ -18,7 +18,7 @@ class ParseEverything:
     Usage:
         from parse_everything import ParseEverything
         client = ParseEverything(api_key="pe_live_...")
-        res = client.scrape("https://nopecha.com/demo/cloudflare")
+        res = client.scrape("https://parse-everything.com/demo/cloudflare")
         print(res['data']['page_title'])
     """
     def __init__(self, api_key: str, base_url: str = "https://parse-everything.com"):
@@ -31,7 +31,7 @@ class ParseEverything:
         self,
         target_url: str,
         render_js: bool = False,
-        bypass_cloudflare: bool = True,
+        bypass_cloudflare: Optional[bool] = None,
         country_code: str = "US",
         extract_text: bool = False,
         selectors: Optional[Dict[str, str]] = None,
@@ -57,12 +57,14 @@ class ParseEverything:
             "target_url": target_url,
             "method": target_method,
             "render_js": render_js,
-            "bypass_cloudflare": bypass_cloudflare,
+
             "auto_detect": auto_detect,
             "country_code": country_code,
             "extract_text": extract_text,
             "timeout": timeout
         }
+        if bypass_cloudflare is not None:
+            payload["bypass_cloudflare"] = bypass_cloudflare
         if target_body is not None:
             payload["body"] = target_body
         if selectors:

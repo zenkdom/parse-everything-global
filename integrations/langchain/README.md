@@ -27,7 +27,7 @@ loader = ParseEverythingLoader(
     ],
     api_key="pe_live_YOUR_KEY",
     extract_text=True,
-    bypass_cloudflare=True
+    auto_detect=True
 )
 
 docs = loader.load()

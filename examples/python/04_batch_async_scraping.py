@@ -18,7 +18,7 @@ print("Submitting batch job for 3 URLs...")
 batch = client.batch(
     target_urls=urls,
     render_js=False,
-    bypass_cloudflare=True,
+    country_code="US",
     webhook_url="https://webhook.site/demo-endpoint"
 )
 

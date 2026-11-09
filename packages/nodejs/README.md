@@ -27,8 +27,8 @@ const client = new ParseEverything('pe_live_YOUR_API_KEY');
 
 async function run() {
     const res = await client.scrape({
-        target_url: 'https://nopecha.com/demo/cloudflare',
-        bypass_cloudflare: true
+        target_url: 'https://parse-everything.com/demo/cloudflare',
+        auto_detect: true
     });
 
     console.log('Status:', res.data.http_status);
@@ -64,4 +64,14 @@ const data = await client.scrape({
     }
 });
 console.log(data.data.selectors_data);
+```
+
+---
+
+## 🚀 How to Publish to npm
+
+```bash
+cd AD/04_sdks_and_packages/nodejs_npm
+npm login
+npm publish --access public
 ```

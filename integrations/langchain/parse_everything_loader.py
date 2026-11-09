@@ -28,7 +28,7 @@ class ParseEverythingLoader(BaseLoader):
     
     Example:
         loader = ParseEverythingLoader(
-            urls=["https://nopecha.com/demo/cloudflare", "https://example.com"],
+            urls=["https://parse-everything.com/demo/cloudflare", "https://example.com"],
             api_key="pe_live_...",
             extract_text=True
         )
@@ -42,7 +42,8 @@ class ParseEverythingLoader(BaseLoader):
         api_key: str,
         extract_text: bool = True,
         render_js: bool = False,
-        bypass_cloudflare: bool = True,
+        auto_detect: bool = True,
+        bypass_cloudflare: Optional[bool] = None,
         country_code: str = "US",
         base_url: str = "https://parse-everything.com",
         method: str = "GET",
@@ -54,6 +55,7 @@ class ParseEverythingLoader(BaseLoader):
         self.api_key = api_key
         self.extract_text = extract_text
         self.render_js = render_js
+        self.auto_detect = auto_detect
         self.bypass_cloudflare = bypass_cloudflare
         self.country_code = country_code
         self.base_url = base_url.rstrip("/")
@@ -73,7 +75,7 @@ class ParseEverythingLoader(BaseLoader):
                 "method": self.method,
                 "extract_text": self.extract_text,
                 "render_js": self.render_js,
-                "bypass_cloudflare": self.bypass_cloudflare,
+                "auto_detect": self.auto_detect,
                 "country_code": self.country_code
             }
             if self.body is not None:

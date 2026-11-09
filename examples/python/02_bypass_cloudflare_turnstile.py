@@ -11,7 +11,7 @@ client = ParseEverything(api_key=API_KEY)
 # Scrape a known Cloudflare Turnstile demo page
 response = client.scrape(
     target_url="https://nopecha.com/demo/cloudflare",
-    bypass_cloudflare=True,
+    auto_detect=True,
     render_js=True,  # Wait for JS execution and challenge completion
     timeout=45,
     selectors={

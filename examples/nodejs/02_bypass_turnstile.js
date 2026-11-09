@@ -11,7 +11,7 @@ async function main() {
     try {
         const res = await client.scrape({
             target_url: 'https://nopecha.com/demo/cloudflare',
-            bypass_cloudflare: true,
+            auto_detect: true,
             render_js: true,
             selectors: {
                 title: 'h1',

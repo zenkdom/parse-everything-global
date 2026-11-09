@@ -6,6 +6,7 @@ export interface ScrapeOptions {
     post_data?: any;
     render_js?: boolean;
     auto_detect?: boolean;
+    /** @deprecated Handled automatically when auto_detect is true */
     bypass_cloudflare?: boolean;
     bypass_akamai?: boolean;
     country_code?: string;

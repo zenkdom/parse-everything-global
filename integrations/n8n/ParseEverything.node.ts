@@ -121,7 +121,7 @@ export class ParseEverything implements INodeType {
                         render_js: renderJs,
                         extract_text: extractText,
                         country_code: countryCode,
-                        bypass_cloudflare: true,
+                        auto_detect: true,
                     },
                     json: true,
                 });

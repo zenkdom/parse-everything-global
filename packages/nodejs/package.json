@@ -1,6 +1,6 @@
 {
   "name": "parse-everything",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Official Node.js SDK for Parse Everything — Bypass Cloudflare Turnstile, Akamai & DataDome with TLS JA3/JA4 impersonation, GET/POST forwarding & zero-cost failed request guarantee.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zenkdom/parse-everything-global"
+    "url": "https://github.com/zenkdom/parse-everything"
   },
   "keywords": [
     "cloudflare-bypass",

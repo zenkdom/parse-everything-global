@@ -9,7 +9,7 @@ if os.path.exists(readme_path):
 
 setup(
     name="parse-everything",
-    version="1.1.1",
+    version="1.1.2",
     author="Parse Everything",
     author_email="support@rawmind.app",
     description="Official Python SDK for Parse Everything — Bypass Cloudflare Turnstile, Akamai & DataDome with TLS JA3/JA4 impersonation, GET/POST forwarding & 0-credit failure guarantee.",
@@ -19,8 +19,8 @@ setup(
     project_urls={
         "Homepage": "https://parse-everything.com",
         "Documentation": "https://parse-everything.com/docs.php",
-        "Source Code": "https://github.com/zenkdom/parse-everything-global",
-        "Bug Tracker": "https://github.com/zenkdom/parse-everything-global/issues",
+        "Source Code": "https://github.com/zenkdom/parse-everything",
+        "Bug Tracker": "https://github.com/zenkdom/parse-everything/issues",
     },
     packages=find_packages(),
     license="MIT",
