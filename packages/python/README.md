@@ -38,8 +38,8 @@ client = ParseEverything(api_key="pe_live_YOUR_API_KEY")
 
 result = client.scrape(
     target_url="https://parse-everything.com/demo/cloudflare",
-    auto_detect=True,
-    render_js=False  # Handled via ultra-fast TLS impersonation in ~300ms
+    country_code="US",
+    render_js=True  # Full browser DOM execution with Turnstile solving
 )
 
 print("HTTP Status:", result["data"]["http_status"])

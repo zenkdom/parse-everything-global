@@ -33,7 +33,7 @@ class ParseEverything {
      * @param {string} params.target_url - Target URL to extract (or params.url)
      * @param {string} [params.method='GET'] - HTTP method: GET, POST, PUT, DELETE
      * @param {any} [params.body] - Request body/payload for POST/PUT
-     * @param {boolean} [params.render_js=false] - Execute dynamic JS and wait for DOM
+     * @param {boolean} [params.render_js=true] - Execute dynamic JS and wait for DOM
      * @param {boolean} [params.auto_detect=true] - Autonomously detect and solve anti-bot protections
      * @param {boolean} [params.bypass_cloudflare] - @deprecated Handled automatically when auto_detect is true
      * @param {string} [params.country_code='US']
@@ -48,9 +48,12 @@ class ParseEverything {
         }
 
         const payload = {
+            render_js: true,
+            country_code: 'US',
+            auto_detect: true,
             ...params,
             target_url: targetUrl,
-            method: (params.method || 'GET').toUpperCase()
+            method: (params?.method || 'GET').toUpperCase()
         };
 
         const url = `${this.baseUrl}/api/v1/extract`;
@@ -101,8 +104,10 @@ class ParseEverything {
                 'User-Agent': 'ParseEverything-NodeSDK/1.0'
             },
             body: JSON.stringify({
-                target_urls: targetUrls,
-                ...options
+                render_js: true,
+                country_code: 'US',
+                ...options,
+                target_urls: targetUrls
             })
         });
 

@@ -15,7 +15,8 @@ curl -s -X POST "${API_URL}" \
      -H "Content-Type: application/json" \
      -d '{
        "target_url": "https://nopecha.com/demo/cloudflare",
-       "auto_detect": true,
+       "country_code": "US",
+       "render_js": true,
        "selectors": {
          "heading": "h1"
        }

@@ -41,7 +41,7 @@ class ParseEverythingLoader(BaseLoader):
         urls: List[str],
         api_key: str,
         extract_text: bool = True,
-        render_js: bool = False,
+        render_js: bool = True,
         auto_detect: bool = True,
         bypass_cloudflare: Optional[bool] = None,
         country_code: str = "US",

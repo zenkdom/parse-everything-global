@@ -30,7 +30,7 @@ class ParseEverything:
     def scrape(
         self,
         target_url: str,
-        render_js: bool = False,
+        render_js: bool = True,
         bypass_cloudflare: Optional[bool] = None,
         country_code: str = "US",
         extract_text: bool = False,
@@ -121,7 +121,7 @@ class ParseEverything:
     def batch(
         self,
         target_urls: List[str],
-        render_js: bool = False,
+        render_js: bool = True,
         country_code: str = "US",
         webhook_url: Optional[str] = None
     ) -> Dict[str, Any]:

@@ -102,7 +102,8 @@ client = ParseEverything("pe_live_YOUR_API_KEY")
 # 1. Scrape a Cloudflare Turnstile protected site
 res = client.scrape(
     target_url="https://nopecha.com/demo/cloudflare",
-    auto_detect=True,
+    country_code="US",
+    render_js=True,
     selectors={
         "heading": "h1",
         "description": "p"
@@ -130,7 +131,8 @@ const client = new ParseEverything('pe_live_YOUR_API_KEY');
 async function run() {
   const result = await client.scrape({
     target_url: 'https://nopecha.com/demo/cloudflare',
-    auto_detect: true,
+    country_code: 'US',
+    render_js: true,
     extract_text: true
   });
 
@@ -156,7 +158,8 @@ $client = new Client('pe_live_YOUR_API_KEY');
 
 $response = $client->scrape([
     'target_url' => 'https://nopecha.com/demo/cloudflare',
-    'auto_detect' => true
+    'country_code' => 'US',
+    'render_js' => true
 ]);
 
 print_r($response['data']['selectors_data']);
@@ -168,7 +171,7 @@ Ideal for scripts, terminal pipelines, Docker containers, n8n, Zapier, or Make.
 
 #### Simple GET Request
 ```bash
-curl "https://parse-everything.com/api/v1/extract?target_url=https://example.com" \
+curl "https://parse-everything.com/api/v1/extract?target_url=https://example.com&country_code=US&render_js=true" \
      -H "Authorization: Bearer pe_live_YOUR_API_KEY"
 ```
 
@@ -179,8 +182,8 @@ curl -X POST "https://parse-everything.com/api/v1/extract" \
      -H "Content-Type: application/json" \
      -d '{
        "target_url": "https://nopecha.com/demo/cloudflare",
-       "auto_detect": true,
        "country_code": "US",
+       "render_js": true,
        "selectors": {
          "title": "h1",
          "button": ".challenge-btn"

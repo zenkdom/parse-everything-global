@@ -12,7 +12,9 @@ client = ParseEverything(api_key=API_KEY)
 
 # Simple scrape with automatic anti-bot detection
 response = client.scrape(
-    target_url="https://example.com"
+    target_url="https://example.com",
+    country_code="US",
+    render_js=True
 )
 
 if response.get("status") == "success":

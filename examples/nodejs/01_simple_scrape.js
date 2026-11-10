@@ -10,7 +10,9 @@ const client = new ParseEverything('pe_live_YOUR_API_KEY');
 async function main() {
     try {
         const res = await client.scrape({
-            target_url: 'https://example.com'
+            target_url: 'https://example.com',
+            country_code: 'US',
+            render_js: true
         });
 
         console.log('Status:', res.status);

@@ -28,7 +28,8 @@ const client = new ParseEverything('pe_live_YOUR_API_KEY');
 async function run() {
     const res = await client.scrape({
         target_url: 'https://parse-everything.com/demo/cloudflare',
-        auto_detect: true
+        country_code: 'US',
+        render_js: true
     });
 
     console.log('Status:', res.data.http_status);

@@ -1,3 +1,22 @@
+# Release v1.1.3 — Default US Geo-Routing & Dynamic Browser Rendering
+
+**Tag:** `v1.1.3`  
+**Date:** November 2026  
+**Target:** Python SDK (PyPI), Node.js SDK (npm), PHP Client (Packagist), n8n Community Node, Documentation & Examples
+
+---
+
+## 🚀 What's New in v1.1.3
+
+- **Default `render_js: true` across all client SDKs:**
+  Many modern websites, single-page applications (SPAs), and anti-bot challenges (Cloudflare Turnstile, DataDome, Akamai) require JavaScript DOM execution to render content or solve verification tokens. In v1.1.3, `render_js` defaults to `true` across the Python, Node.js, PHP, and n8n clients so targets resolve immediately out of the box without manual tweaking.
+- **Default `country_code: 'US'`:**
+  Routing through high-reputation US residential / datacenter IP pools is now standard across all clients, ensuring maximum success rates and avoiding geo-blocking.
+- **n8n Node Community Update:**
+  The `ParseEverything` n8n node now defaults `renderJs` to `true` and `countryCode` to `US`.
+
+---
+
 # Release v1.1.2 — Unified Auto-Detect Anti-Bot Engine & Modernized SDKs
 
 **Tag:** `v1.1.2`  
