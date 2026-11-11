@@ -1,6 +1,6 @@
 # Parse Everything — Python SDK
 
-[![PyPI version](https://img.shields.io/badge/pypi-v1.1.0-blue.svg)](https://pypi.org/project/parse-everything/)
+[![PyPI version](https://img.shields.io/badge/pypi-v1.1.4-blue.svg)](https://pypi.org/project/parse-everything/)
 [![Free Credits](https://img.shields.io/badge/Free%20Tier-1%2C000%20Requests-green.svg)](https://parse-everything.com)
 [![Python Versions](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://pypi.org/project/parse-everything/)
 

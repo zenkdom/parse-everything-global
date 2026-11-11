@@ -1,3 +1,20 @@
+# Release v1.1.4 — Official Support Contact & Package Metadata Update
+
+**Tag:** `v1.1.4`  
+**Date:** November 2026  
+**Target:** Python SDK (PyPI), Node.js SDK (npm), PHP Client (Packagist), n8n Community Node, OpenAPI Spec & Documentation
+
+---
+
+## 🔄 What's New in v1.1.4
+
+- **Official Support Contact Migration:**
+  Updated package author/support contact metadata and OpenAPI specifications across all SDKs, integrations, and repositories to `support@parse-everything.com`.
+- **Synchronized SDK Versions & User-Agent Headers:**
+  Aligned `v1.1.4` version identifiers and `User-Agent` headers across Python (`parse-everything`), Node.js (`parse-everything`), PHP (`parse-everything/client`), and n8n (`n8n-nodes-parse-everything`).
+
+---
+
 # Release v1.1.3 — Default US Geo-Routing & Dynamic Browser Rendering
 
 **Tag:** `v1.1.3`  

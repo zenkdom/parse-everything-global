@@ -62,7 +62,7 @@ class ParseEverything {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${this.apiKey}`,
-                'User-Agent': 'ParseEverything-NodeSDK/1.1.0'
+                'User-Agent': 'ParseEverything-NodeSDK/1.1.4'
             },
             body: JSON.stringify(payload)
         });
@@ -101,7 +101,7 @@ class ParseEverything {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${this.apiKey}`,
-                'User-Agent': 'ParseEverything-NodeSDK/1.0'
+                'User-Agent': 'ParseEverything-NodeSDK/1.1.4'
             },
             body: JSON.stringify({
                 render_js: true,
@@ -128,7 +128,7 @@ class ParseEverything {
         const res = await fetch(url, {
             headers: {
                 'Authorization': `Bearer ${this.apiKey}`,
-                'User-Agent': 'ParseEverything-NodeSDK/1.0'
+                'User-Agent': 'ParseEverything-NodeSDK/1.1.4'
             }
         });
 

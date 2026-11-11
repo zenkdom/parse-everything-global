@@ -5,9 +5,9 @@
 **Bypass Cloudflare Turnstile, Cloudflare WAF, Akamai Bot Manager, and DataDome at wire speed.**  
 Powered by real **TLS JA3/JA4 browser fingerprint impersonation**, **Playwright stealth execution**, **Batch processing**, and **HMAC-SHA256 Webhooks**.
 
-[![PyPI version](https://img.shields.io/badge/pypi-v1.1.1-blue.svg?logo=pypi)](https://pypi.org/project/parse-everything/#metadata)
-[![npm version](https://img.shields.io/badge/npm-v1.1.1-red.svg?logo=npm)](https://www.npmjs.com/package/parse-everything)
-[![Packagist version](https://img.shields.io/badge/packagist-v1.1.0-orange.svg?logo=php)](https://packagist.org/packages/parse-everything/client)
+[![PyPI version](https://img.shields.io/badge/pypi-v1.1.4-blue.svg?logo=pypi)](https://pypi.org/project/parse-everything/#metadata)
+[![npm version](https://img.shields.io/badge/npm-v1.1.4-red.svg?logo=npm)](https://www.npmjs.com/package/parse-everything)
+[![Packagist version](https://img.shields.io/badge/packagist-v1.1.4-orange.svg?logo=php)](https://packagist.org/packages/parse-everything/client)
 [![SaaSHub](https://img.shields.io/badge/SaaSHub-Rate_%26_Review-1182c5.svg?logo=buffer)](https://www.saashub.com/parse-everything-alternatives)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-brightgreen.svg?logo=python)](https://python.org)
 [![Node 18+](https://img.shields.io/badge/node-18+-green.svg?logo=node.js)](https://nodejs.org)

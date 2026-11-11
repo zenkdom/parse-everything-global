@@ -85,7 +85,7 @@ class ParseEverything:
             headers={
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {self.api_key}",
-                "User-Agent": "ParseEverything-PythonSDK/1.1.1"
+                "User-Agent": "ParseEverything-PythonSDK/1.1.4"
             },
             method="POST"
         )
@@ -143,7 +143,7 @@ class ParseEverything:
             headers={
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {self.api_key}",
-                "User-Agent": "ParseEverything-PythonSDK/1.0"
+                "User-Agent": "ParseEverything-PythonSDK/1.1.4"
             },
             method="POST"
         )
@@ -164,7 +164,7 @@ class ParseEverything:
             url,
             headers={
                 "Authorization": f"Bearer {self.api_key}",
-                "User-Agent": "ParseEverything-PythonSDK/1.0"
+                "User-Agent": "ParseEverything-PythonSDK/1.1.4"
             }
         )
         try:
